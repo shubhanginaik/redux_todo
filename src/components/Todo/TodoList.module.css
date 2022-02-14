@@ -1,0 +1,37 @@
+.todos {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.todos ul {
+  list-style: none;
+  padding: 1rem;
+}
+
+.todo {
+  border: 1px solid #ccc;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.todo.done h2,
+.todo.done p {
+  background-color: #03202a;
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.delete {
+  position: absolute;
+  color: #4ea9cc;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: white;
+}

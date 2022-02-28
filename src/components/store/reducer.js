@@ -1,3 +1,5 @@
+import *as actionTypes from './actions';
+
 const initialNotes ={
     notes:[
         {
@@ -27,10 +29,23 @@ const initialNotes ={
       ],
 }
      
-
-
 const reducer= (state=initialNotes, action) =>{
-    return state;
+    switch(action.type){
+        case actionTypes.ADD_TODO:
+            return {
+                notes:[
+                    ...state.notes,
+                    {
+                        id:new Date().valueOf(),
+                        ...action.payload,
+                        done:false,
+                    },
+                ],
+            };
+            default:
+               return state;
+    }
+    
 }
 
 export default reducer;

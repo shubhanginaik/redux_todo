@@ -1,12 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { notes } from "../../notes";
+
 import classes from "./TodoList.module.css";
 
 const TodoList = () => {
 
-  const notes=useSelector(state =>state.notes)
+  const notes=useSelector(state =>state.notes);
+  // const something=useSelector(state =>state.something)
 
   const removeHandler = (id) => {
     console.log(id, "was clicked");
@@ -18,6 +19,7 @@ const TodoList = () => {
   return (
     <div className={classes.todos}>
       <h1>Notes:</h1>
+      {/* <h2>{something}</h2> */}
       {notes.map((note) => {
         return (
           <div

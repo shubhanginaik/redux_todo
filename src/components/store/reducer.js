@@ -1,4 +1,4 @@
-import *as actionTypes from './actions';
+import * as actionTypes from './actions';
 
 const initialNotes ={
     notes:[
@@ -42,6 +42,22 @@ const reducer= (state=initialNotes, action) =>{
                     },
                 ],
             };
+            case actionTypes.REMOVE_TODO:
+                const updatearray = state.notes.filter((item) => item.id !== action.id);
+             return{
+                 ...state,
+                 notes:updatearray,
+             };
+            case actionTypes.DONE_NOTE:
+                 const doneToggle = state.notes.map((item) =>{
+                     return item.id === action.id
+                     ? {...item,done: !item.done}
+                     : {...item};
+                 });
+                 return {
+                     ...state,
+                     notes: doneToggle,
+                 };
             default:
                return state;
     }

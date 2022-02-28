@@ -21,7 +21,17 @@ const TodoList = () => {
       payload:id
     });
   };
+  useEffect(()=>{
+    if(filteredValue==="true"){
+      setFilterList(
+        dispatch()
+      )
+    }
+  })
 
+  const filterHandler=(e)=>{
+    setFiteredValue(e.target.value);
+  };
  
   const doneHandler = (id) => {
     console.log(id, "was clicked");

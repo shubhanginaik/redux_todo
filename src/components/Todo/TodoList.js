@@ -17,7 +17,7 @@ const TodoList = () => {
     } else if (filteredValue === 'false') {
       setFilteredList(notes.filter((item) => item.done !== !!filteredValue));
     } else {
-      setFilteredList(filterList);
+      setFilteredList(notes);
     }
   }, [filteredValue, notes]);
 
@@ -61,6 +61,8 @@ const TodoList = () => {
         <option value="false">Not done</option>
         <option value="all">All</option>
       </select>
+      {!notes && <p>Please add some notes first</p>}
+
       {filterList?.map((note) => {
         return (
           <div

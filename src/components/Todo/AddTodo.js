@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createNote } from '../store/reducer';
 
-import * as actionTypes from "../store/actions";
+import * as actionTypes from '../store/actions';
 
-import classes from "./AddTodo.module.css";
-import Button from "../UI/Button";
+import classes from './AddTodo.module.css';
+import Button from '../UI/Button';
 
 const AddTodo = () => {
-  const [todo, setTodo] = useState({ title: "", task: "" });
+  const [todo, setTodo] = useState({ title: '', task: '' });
   const dispatch = useDispatch();
 
   const changeHandler = (e) => {
@@ -21,12 +22,7 @@ const AddTodo = () => {
 
   const addHandler = (e) => {
     e.preventDefault();
-    console.log(todo);
-
-    dispatch({
-      type: actionTypes.ADD_TODO,
-      payload: todo,
-    });
+    dispatch(createNote(todo));
   };
 
   return (

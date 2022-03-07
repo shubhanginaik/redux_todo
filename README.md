@@ -7,3 +7,9 @@ This repo contains all the exercises and demo I've done for the react-redux cour
 ### Actions:Actions are what the name implies – they are objects that determine what will be done.
 
 ### Reducers: on the other hand, check which action is performed and update the state based on the action. It takes in the state and the action.
+## How to run this app
+- first need to run server:`npm run server``
+"`http://loacalhos:3001`"
+- start the app on  another terminal:
+`npm start`
+It will add, update, delete data from db.json server

@@ -9,9 +9,10 @@ const App = () => {
 
   useEffect(()=>{
     dispatch(initNotes())
-  },[])
+  },[dispatch])
   return (
     <div>
+      <h1>Redux todo</h1>
       <AddTodo />
       <TodoList />
     </div>

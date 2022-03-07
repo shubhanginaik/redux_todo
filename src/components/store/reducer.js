@@ -29,39 +29,40 @@ const initialNotes ={
       ],
 }
      
-const reducer= (state=initialNotes, action) =>{
-    switch(action.type){
-        case actionTypes.ADD_TODO:
-            return {
-                notes:[
-                    ...state.notes,
-                    {
-                        id:new Date().valueOf(),
-                        ...action.payload,
-                        done:false,
-                    },
-                ],
-            };
-            case actionTypes.REMOVE_TODO:
-                const updatearray = state.notes.filter((item) => item.id !== action.id);
-             return{
-                 ...state,
-                 notes:updatearray,
-             };
-            case actionTypes.DONE_NOTE:
-                 const doneToggle = state.notes.map((item) =>{
-                     return item.id === action.id
-                     ? {...item,done: !item.done}
-                     : {...item};
-                 });
-                 return {
-                     ...state,
-                     notes: doneToggle,
-                 };
-            default:
-               return state;
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+      case actionTypes.ADD_TODO:
+        return {
+          notes: [
+            ...state.notes,
+            {
+              id: new Date().valueOf(),
+              ...action.payload,
+              done: false,
+            },
+          ],
+        };
+      case actionTypes.REMOVE_TODO:
+        const updateArray = state.notes.filter(
+          (item) => item.id !== action.payload
+        );
+        return {
+          ...state,
+          notes: updateArray,
+        };
+      case actionTypes.DONE_NOTE:
+        const doneToggle = state.notes.map((item) => {
+          return item.id === action.payload
+            ? { ...item, done: !item.done }
+            : { ...item };
+        });
+        return {
+          ...state,
+          notes: doneToggle,
+        };
+      default:
+        return state;
     }
-    
-}
-
-export default reducer;
+  };
+  
+  export default reducer;

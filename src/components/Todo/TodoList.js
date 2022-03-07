@@ -4,7 +4,7 @@ import classes from './TodoList.module.css';
 import * as actionTypes from '../store/actions';
 
 const TodoList = () => {
-  const notes = useSelector((state) => state.notes);
+  const notes = useSelector((state) => state);
   const [filteredValue, setFilteredValue] = useState();
   const [searchValue, setSearchValue] = useState('');
   const [filterList, setFilteredList] = useState(notes);
@@ -61,7 +61,7 @@ const TodoList = () => {
         <option value="false">Not done</option>
         <option value="all">All</option>
       </select>
-      {filterList.map((note) => {
+      {filterList?.map((note) => {
         return (
           <div
             onClick={() => doneHandler(note.id)}

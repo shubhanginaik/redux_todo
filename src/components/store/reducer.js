@@ -1,36 +1,11 @@
 import * as actionTypes from './actions';
+import noteService from '../../services/notes';
 
-const initialNotes ={
-    notes:[
-        {
-          id: 1,
-          title: "Create clean app",
-          task: "npx create-react-app",
-          done: true,
-        },
-        {
-          id: 2,
-          title: "Install Redux",
-          task: "npm install redux",
-          done: false,
-        },
-        {
-          id: 3,
-          title: "Install Complementary Packages​",
-          task: "npm install react-redux and npm install --save-dev redux-devtools",
-          done: false,
-        },
-        {
-            id: 4,
-            title: "Install react-redux package​",
-            task: "npm install react-redux and npm install --save-dev redux-devtools",
-            done: false,
-          },
-      ],
-}
      
-const reducer = (state = initialState, action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
+      case actionTypes.INIT_NOTES:
+            return action.payload;
       case actionTypes.ADD_TODO:
         return {
           notes: [
@@ -64,5 +39,15 @@ const reducer = (state = initialState, action) => {
         return state;
     }
   };
+
+  export const initNotes = () =>{
+return async (dispatch) =>{
+    const notes = await noteService.getAll();
+    dispatch({
+        type:actionTypes.INIT_NOTES,
+        payload:notes,
+    });
+  };
+}
   
   export default reducer;

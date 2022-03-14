@@ -13,3 +13,8 @@ This repo contains all the exercises and demo I've done for the react-redux cour
 - start the app on  another terminal:
 `npm start`
 It will add, update, delete data from db.json server
+### todolist
+![todolist](./public/todolist.png)
+
+### serverNotes
+![notesdata](./public/serverNotes.png)
